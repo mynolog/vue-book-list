@@ -34,6 +34,34 @@
       "author": "조현영",
       "publishYear": 2024,
       "description": "12가지 프로그램을 만들면서 개념과 문법을 익히는 자바스크립트 입문서"
+    },
+    {
+      "id": 6,
+      "title": "코딩 자율학습 SQL 데이터베이스 입문",
+      "author": "홍팍",
+      "publishYear": 2025,
+      "description": "기초부터 활용까지 입문자를 위한 SQL 자습서"
+    },
+    {
+      "id": 7,
+      "title": "코딩 자율학습 리눅스 입문 with 우분투",
+      "author": "런잇",
+      "publishYear": 2024,
+      "description": "입문자를 위한 가장 쉬운 리눅스 자습서 스스로 하는 프로그래밍 공부"
+    },
+    {
+      "id": 8,
+      "title": "코딩 자율학습 자바 입문",
+      "author": "최원효",
+      "publishYear": 2024,
+      "description": "입문자의 눈높이에 맞춰 문법과 개념을 설명하는 자바 입문서"
+    },
+    {
+      "id": 9,
+      "title": "코딩 자율학습 Vue.js 프런트엔드 개발 입문",
+      "author": "김기수",
+      "publishYear": 2024,
+      "description": "기초부터 실무 프로젝트까지 만들면서 배우는 프런트엔드 개발 자습서 (코딩 자율학습)"
     }
   ]
 }

@@ -1,3 +1,6 @@
+import type { ApiEndpoint } from '../types/api'
+import { API_ENDPOINT } from '../constants/api'
+
 class ApiClient {
   baseUrl: string
   constructor() {
@@ -8,9 +11,9 @@ class ApiClient {
     this.baseUrl = baseUrl
   }
 
-  async request(url: string, options: RequestInit = {}) {
+  async request<T>(endpoint: ApiEndpoint, options: RequestInit = {}): Promise<T> {
     try {
-      const response = await fetch(`${this.baseUrl}${url}`, {
+      const response = await fetch(`${this.baseUrl}${API_ENDPOINT[endpoint]}`, {
         ...options,
         headers: {
           'Content-Type': 'application/json',
@@ -21,7 +24,8 @@ class ApiClient {
       if (!response.ok) {
         throw new Error(response.statusText)
       }
-      return await response.json()
+      const data = (await response.json()) as T
+      return data
     } catch (error) {
       console.error('Error: ', error)
       throw error
@@ -29,8 +33,8 @@ class ApiClient {
   }
 
   // GET 요청
-  get(url: string) {
-    return this.request(url, { method: 'GET' })
+  get<T>(endpoint: ApiEndpoint): Promise<T> {
+    return this.request(endpoint, { method: 'GET' })
   }
 }
 

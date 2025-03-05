@@ -1,17 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import ApiClient from './api'
-
-onMounted(async () => {
-  const apiClient = new ApiClient()
-
-  try {
-    const books = await apiClient.get('books')
-    console.log(books)
-  } catch (error) {
-    console.error('Error fetching books', error)
-  }
-})
+import BookList from './components/BookList.vue'
 </script>
 
-<template></template>
+<template>
+  <div class="max-w-[840px] min-h-screen mx-auto mt-20">
+    <book-list />
+  </div>
+</template>
