@@ -1,3 +1,6 @@
-export const API_ENDPOINT = {
+export const API_ENDPOINT: Record<string, string> = {
+  ROOT: '/',
   BOOKS: '/books',
-} as const
+  BOOK_DETAIL: '/books/:id',
+  ID: '/id',
+}

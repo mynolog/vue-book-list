@@ -1,4 +1,3 @@
-import type { ApiEndpoint } from '../types/api'
 import { API_ENDPOINT } from '../constants/api'
 
 class ApiClient {
@@ -11,9 +10,10 @@ class ApiClient {
     this.baseUrl = baseUrl
   }
 
-  async request<T>(endpoint: ApiEndpoint, options: RequestInit = {}): Promise<T> {
+  async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     try {
-      const response = await fetch(`${this.baseUrl}${API_ENDPOINT[endpoint]}`, {
+      const url = API_ENDPOINT[endpoint as keyof typeof API_ENDPOINT] || endpoint
+      const response = await fetch(`${this.baseUrl}${url}`, {
         ...options,
         headers: {
           'Content-Type': 'application/json',
@@ -32,8 +32,7 @@ class ApiClient {
     }
   }
 
-  // GET 요청
-  get<T>(endpoint: ApiEndpoint): Promise<T> {
+  get<T>(endpoint: string): Promise<T> {
     return this.request(endpoint, { method: 'GET' })
   }
 }
